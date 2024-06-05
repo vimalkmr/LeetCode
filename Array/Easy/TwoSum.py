@@ -22,8 +22,20 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 '''
 
+# Big O notation = O(n^2)
 def twoSum(self, nums: List[int], target: int) -> List[int]:
     for i in range(len(nums)):
         for j in range(i+1, len(nums)):
             if nums[i] + nums[j] == target:
                 return [i, j]
+
+# O(n) - Using Hash table
+def twoSum(self, nums: list[int], target: int) -> list[int]:
+    d = {}  
+    for i in range(len(nums)):
+        if target-nums[i] in d:
+            return [i,d[target-nums[i]]]
+        else:
+            d[nums[i]] = i
+
+
