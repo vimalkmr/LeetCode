@@ -23,6 +23,7 @@ Output: [0,1]
 '''
 
 # Big O notation = O(n^2)
+# Brute Force method, in which we iterate over the list twice to find the indices.
 def twoSum(self, nums: List[int], target: int) -> List[int]:
     for i in range(len(nums)):
         for j in range(i+1, len(nums)):
@@ -30,12 +31,14 @@ def twoSum(self, nums: List[int], target: int) -> List[int]:
                 return [i, j]
 
 # O(n) - Using Hash table
+# Idea is to add the number into num_dict then searching for the difference of it in num_dict.
+# This way we can exit the loop as soon as we get the index, instead of looping over entire list.
 def twoSum(self, nums: list[int], target: int) -> list[int]:
-    d = {}  
+    num_dict = {}  
     for i in range(len(nums)):
-        if target-nums[i] in d:
-            return [i,d[target-nums[i]]]
+        if target-nums[i] in num_dict:
+            return [i, num_dict[target-nums[i]]]
         else:
-            d[nums[i]] = i
+            num_dict[nums[i]] = i
 
 
